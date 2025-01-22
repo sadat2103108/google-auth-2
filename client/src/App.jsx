@@ -12,6 +12,7 @@ const App = () => {
       credentials: "include", // Required to include cookies with the request
     })
       .then((response) => {
+        console.log("logged in");
         if (response.status === 200) {
           return response.json();
         } else {

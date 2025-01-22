@@ -23,23 +23,21 @@ app.use(
     })
 );
 app.use(passport.initialize());
-app.use(passport.session()); 
+app.use(passport.session());
 
 
 app.use(
     cors({
         origin: process.env.CLIENT_URL,
-        methods:"GET,POST,PUT,DELETE",
-        credentials:true,
+        credentials: true, // Allow cookies to be sent
     })
-)
-
-app.use('/api/auth',authRoute);
+);
+app.use('/api/auth', authRoute);
 
 
 const port = process.env.PORT || 8080;
 // const port = 8080;
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}....`);
 });
