@@ -1,5 +1,7 @@
 import express from 'express';
 import passport from "passport";
+import dotenv from 'dotenv'
+dotenv.config()
 
 const router = express.Router();
 
@@ -30,10 +32,11 @@ router.get("/login/failed", (req, res) => {
 router.get(
     '/google/callback',
     passport.authenticate('google', {
-        successRedirect: "/api/auth/login/success",
-        failureRedirect: "api/auth/login/failed",
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: "/api/auth/login/failed",
     })
 );
+
 
 router.get('/google', passport.authenticate('google', {
     scope: ["profile", "email"],
