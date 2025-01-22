@@ -30,10 +30,14 @@ const App = () => {
     <div>
       {user ? (
         <div>
-          THIS IS MY WEBSITE, WELCOME {user.displayName || user.name || "User"}
+          You are logged in, Welcome {user.displayName || user.name || "User"}
+          <br/>
+          <a href= {`${apiURL}/auth/logout`}>Logout</a>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div>
+          <a href= {`${apiURL}/auth/google`}>login with google</a>
+        </div>
       )}
     </div>
   );
