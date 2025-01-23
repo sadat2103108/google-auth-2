@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [user, setUser] = useState(null); // To store the user info
-  const apiURL = "http://localhost:8080/api";
+  const apiURL = `${import.meta.env.VITE_SERVER_DOMAIN}/api`;
+  // const apiURL = "http://localhost:8080/api";
+
+  // console.log(import.meta.env.VITE_SERVER_DOMAIN);
+
 
   useEffect(() => {
     // Fetch user data

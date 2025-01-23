@@ -9,7 +9,7 @@ import "./config/passportConfig.js";
 
 dotenv.config();
 const app = express();
-
+const LOGIN_SESSION_TIMEOUT = 24*60*60 ; //in seconds , GIVEN:1 DAY
 
 app.use(
     session({
@@ -17,7 +17,7 @@ app.use(
         resave: false, // Prevent session being saved back to the store if not modified
         saveUninitialized: false, // Only save new sessions if they contain data
         cookie: {
-            maxAge: 24 * 60 * 60 * 1000, // 1 day
+            maxAge: LOGIN_SESSION_TIMEOUT * 1000, //in miliseconds
             httpOnly: true,
         },
     })
